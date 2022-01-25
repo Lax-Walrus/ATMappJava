@@ -2,7 +2,6 @@ package bankingApp.display;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -11,66 +10,120 @@ import javax.swing.JPanel;
 
 public class ButtonBar extends JPanel {
 
-	JButton[] numberButtons = new JButton[10];
-	JButton Accept, Cancel;
-	JPanel panel;
+	JButton Accept, Cancel, button;
+	JPanel panel, secondPanel;
 
 	public ButtonBar() {
 
 		this.setPreferredSize(new Dimension(360, 240));
 		this.setBackground(Color.blue);
 
-		Accept = new JButton("accept");
-
-		for (int i = 0; i < 10; i++) {
-			numberButtons[i] = new JButton(String.valueOf(i));
-			numberButtons[i].setFont(new Font("San-serif", Font.PLAIN, 30));
-//			numberButtons[i].addActionListener((ActionListener) this);
-			numberButtons[i].setFocusable(false);
-
-		}
-
 		panel = new JPanel();
-
 		panel.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
-
 		c.fill = GridBagConstraints.HORIZONTAL;
+
+		secondPanel = new JPanel();
+		secondPanel.setLayout(new GridBagLayout());
+		GridBagConstraints x = new GridBagConstraints();
+		x.fill = GridBagConstraints.HORIZONTAL;
 
 		panel.setBackground(Color.pink);
 
-		Cancel = new JButton("cancel");
-		c.ipady = 20;
-		c.weightx = .5;
-		c.gridwidth = 2;
+		button = new JButton("1");
+
+		c.ipady = 60;
+		c.ipadx = 60;
 		c.gridx = 0;
-		c.gridy = 5;
+		c.gridy = 0;
+		panel.add(button, c);
+
+		button = new JButton("2");
+		c.ipady = 60;
+		c.ipadx = 60;
+		c.gridx = 1;
+		c.gridy = 0;
+		panel.add(button, c);
+
+		button = new JButton("3");
+		c.ipady = 60;
+		c.ipadx = 60;
+		c.gridx = 2;
+		c.gridy = 0;
+		panel.add(button, c);
+
+		button = new JButton("4");
+		c.ipady = 60;
+		c.ipadx = 60;
+		c.gridx = 0;
+		c.gridy = 1;
+		panel.add(button, c);
+
+		button = new JButton("5");
+		c.ipady = 60;
+		c.ipadx = 60;
+		c.gridx = 1;
+		c.gridy = 1;
+		panel.add(button, c);
+
+		button = new JButton("6");
+		c.ipady = 60;
+		c.ipadx = 60;
+		c.gridx = 2;
+		c.gridy = 1;
+		panel.add(button, c);
+
+		button = new JButton("7");
+		c.ipady = 60;
+		c.ipadx = 40;
+		c.gridx = 0;
+		c.gridy = 2;
+		panel.add(button, c);
+
+		button = new JButton("8");
+		c.ipady = 60;
+		c.ipadx = 60;
+		c.gridx = 1;
+		c.gridy = 2;
+		panel.add(button, c);
+
+		button = new JButton("9");
+		c.ipady = 60;
+		c.ipadx = 60;
+		c.gridx = 2;
+		c.gridy = 2;
+		panel.add(button, c);
+
+		button = new JButton("0");
+		c.ipady = 60;
+		c.ipadx = 60;
+		c.gridwidth = 3;
+		c.gridx = 0;
+		c.gridy = 3;
+		panel.add(button, c);
+
+		Cancel = new JButton("cancel");
+		x.ipady = 60;
+		x.ipadx = 60;
+		x.weightx = .5;
+		x.weighty = .5;
+		x.gridwidth = 2;
+		x.gridx = 0;
+		x.gridy = 5;
+		secondPanel.add(Cancel, x);
 
 		Accept = new JButton("accept");
-		c.ipady = 20;
-		c.weightx = .5;
-		c.gridwidth = 2;
-		c.gridx = 2;
-		c.gridy = 5;
-
-		panel.add(numberButtons[1]);
-		panel.add(numberButtons[2]);
-		panel.add(numberButtons[3]);
-
-		panel.add(numberButtons[4]);
-		panel.add(numberButtons[5]);
-		panel.add(numberButtons[6]);
-
-		panel.add(numberButtons[7]);
-		panel.add(numberButtons[8]);
-		panel.add(numberButtons[9]);
-
-		panel.add(numberButtons[0]);
-
-		panel.add(Accept, c);
-		panel.add(Cancel, c);
+		x.ipady = 60;
+		x.ipadx = 60;
+		x.weightx = .5;
+		x.weighty = .5;
+		x.gridwidth = 2;
+		x.gridx = 2;
+		x.gridy = 5;
+		secondPanel.add(Accept, x);
 
 		this.add(panel);
+		this.add(secondPanel);
 
 	}
 }
